@@ -9,39 +9,58 @@
 <p style="text-align:center">Is my list missing one of your favorite films? Fill out the form below to add it to my list!</p>
 
 <form method="post" style="max-width: 400px; margin: auto;">
-    <label asp-for="category">Category:</label>
-    <input asp-for="category" type="text" required style="width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;"><br /><br />
+    <input asp-for="MovieID" type="hidden" />
 
-    <label asp-for="title">Title:</label>
-    <input asp-for="title" type="text" required style="width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;"><br /><br />
+    <label asp-for="CategoryId">Category:</label>
+    <select asp-for="CategoryId" style="width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;">
+        <option value=1>Miscellaneous</option>
+        <option value=2>Drama</option>
+        <option value=3>Television</option>
+        <option value=4>Horror/Suspense</option>
+        <option value=5>Comedy</option>
+        <option value=6>Family</option>
+        <option value=7>Action/Adventure</option>
+        <option value=8>VHS</option>
+    </select><br /><br />
 
-    <label asp-for="year">Year:</label>
-    <input asp-for="year" type="number" required style="width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;"><br /><br />
+    <label asp-for="Title">Title:</label>
+    <input asp-for="Title" type="text" required style="width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;"><br /><br />
 
-    <label asp-for="director">Director:</label>
-    <input asp-for="director" type="text" required style="width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;"><br /><br />
+    <label asp-for="Year">Year:</label>
+    <input asp-for="Year" type="number" min=1888 required style="width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;"><br /><br />
 
-    <label asp-for="rating">Rating:</label>
-    <select asp-for="rating" required style="width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;">
+    <label asp-for="Director">Director:</label>
+    <input asp-for="Director" type="text" required style="width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;"><br /><br />
+
+    <label asp-for="Rating">Rating:</label>
+    <select asp-for="Rating" required style="width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;">
         <option value="G">G</option>
         <option value="PG">PG</option>
         <option value="PG-13">PG-13</option>
         <option value="R">R</option>
     </select><br /><br />
 
-    <label asp-for="edited">Edited:</label>
-    <select asp-for="edited" required style="width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;">
+    <label asp-for="Edited">Edited:</label>
+    <select asp-for="Edited" required style="width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;">
         <option value="true">Yes</option>
         <option value="false">No</option>
     </select><br /><br />
 
-    <label asp-for="lentTo">Lent To:</label>
-    <input asp-for="lentTo" type="text" style="width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;"><br /><br />
+    <label asp-for="LentTo">Lent To:</label>
+    <input asp-for="LentTo" type="text" style="width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;"><br /><br />
 
-    <label asp-for="notes">Notes:</label>
-    <input asp-for="notes" maxlength="25" type="text" style="width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;"><br /><br />
+    <label asp-for="CopiedToPlex">Copied To Plex:</label>
+    <select asp-for="CopiedToPlex" required style="width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+    </select><br /><br />
+
+    <label asp-for="Notes">Notes:</label>
+    <input asp-for="Notes" maxlength="25" type="text" style="width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;"><br /><br />
 
     <button type="submit" style="background-color: #007bff; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer; margin: auto; display: block;">Submit</button>
+
 </form>
 
+<div asp-validation-summary="All"></div>
 
